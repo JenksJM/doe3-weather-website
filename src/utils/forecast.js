@@ -15,7 +15,9 @@ const forecast = (latitude, longitude, callback) => {
             const temperature = data.temperature;
             const feelsLike = data.feelslike;
             const weatherDescriptions = data.weather_descriptions[0];
-            callback(undefined, weatherDescriptions + '. It is currently ' + temperature + ' degrees out. It feels like ' + feelsLike + ' degrees out');
+            const weatherIcon = data.weather_icons[0];
+            const iconDetail = '<img src="'+weatherIcon+'">';
+            callback(undefined, "<b>" + weatherDescriptions + "</b>" + '. It is currently ' + temperature + ' degrees out. It feels like ' + feelsLike + ' degrees out<br>' + iconDetail);
         }
     });
 }
